@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Weapon
+  - SoundToken
+  - Bullet
+  - Enemy
+  - Door
+  - Player_Bullet
+  - Enemy_Bullet
+  - Wall
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - Player
+  - Weapon
+  - Wall
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2842297505
+    locked: 0
+  - name: Doors
+    uniqueID: 2398082713
+    locked: 0
+  - name: Objects
+    uniqueID: 2335884235
+    locked: 0
+  - name: Walls
+    uniqueID: 776821803
+    locked: 0
