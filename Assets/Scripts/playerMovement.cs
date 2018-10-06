@@ -13,9 +13,11 @@ public class playerMovement : MonoBehaviour {
 	bool holdingWeapon = false;
 	GameObject weapon;
 	weapons script;
+	AudioSource sound;
 
 	void Start () {
 		rb2D = gameObject.GetComponent<Rigidbody2D>();
+		sound = GetComponent<AudioSource>();
 	}
 	
 	void Update () {
@@ -27,13 +29,20 @@ public class playerMovement : MonoBehaviour {
 			PickUpWeapon();
 		}
 		if (Input.GetKeyDown(KeyCode.Mouse0) && holdingWeapon)
+		{
 			script.Shoot(transform.position);
+			if (script.ammo >= 0)
+				sound.PlayOneShot(script.clips[0], 0.7f);
+			else
+				sound.PlayOneShot(script.clips[1], 0.7f);
+		}
 		if (Input.GetKeyDown(KeyCode.Mouse1) && holdingWeapon)
 			ThrowWeapon();
 	}
 
 	void ThrowWeapon()
 	{
+		sound.PlayOneShot(script.clips[2], 0.7f);
 		script.pickedUp = false;
 		script.SetUpThrow(transform.position, -transform.up);
 	}
@@ -67,6 +76,7 @@ public class playerMovement : MonoBehaviour {
 				weapon = hit.collider.gameObject;
 				holdingWeapon = true;
 				script = weapon.GetComponent<weapons>();
+				sound.Play(0);
 				script.pickedUp = true;
 			}
 		}

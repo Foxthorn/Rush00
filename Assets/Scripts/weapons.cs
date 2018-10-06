@@ -7,18 +7,20 @@ public class weapons : MonoBehaviour {
 	public GameObject ammunition;
 	public int ammo;
 	public bool pickedUp = false;
+	public List<AudioClip> clips = new List<AudioClip>();
 
 	Rigidbody2D rb;
 	bool thrown = false;
 	Vector2 thrownDirection;
 	float throwForce = 20f;
 	float resistance = 0.1f;
-	// Use this for initialization
+	AudioSource sound;
+
 	void Start () {
-		rb = gameObject.GetComponent<Rigidbody2D>();		
+		rb = gameObject.GetComponent<Rigidbody2D>();	
+		sound = GetComponent<AudioSource>();
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
 		if (pickedUp)
 			gameObject.SetActive(false);
@@ -46,7 +48,7 @@ public class weapons : MonoBehaviour {
 
 	public void Shoot(Vector3 position)
 	{
-		if (ammo > 0)
+		if (ammo >= 0)
 		{
 			ammo -= 1;
 			var bullet = (GameObject)Instantiate(ammunition, position, Quaternion.identity);
